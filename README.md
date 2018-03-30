@@ -1,6 +1,6 @@
 # Hydra: an Ensemble of Convolutional Neural Networks for Geospatial Land Classification
 
-This repository releases the code for the experimental evaluation of the [Hydra framework](http://arxiv.org/abs/1802.03518) using the NWPU-RESISC45 dataset. If you are looking for code and models for the functional Map of the World (fMoW) challenge, please go to the following repository: [https://github.com/maups/hydra-fmow/](https://github.com/maups/hydra-fmow/).
+This repository releases the code for the experimental evaluation of the [Hydra framework](http://arxiv.org/abs/1802.03518) using the NWPU-RESISC45 dataset. If you are looking for code and models for the functional Map of the World (fMoW) challenge, please go to the following repository: [https://github.com/maups/hydra-fmow/](https://github.com/maups/hydra-fmow/)
 
 ## Authors
 
