@@ -70,7 +70,8 @@ class FMOWBaseline:
 
         model = get_cnn_model(self.params, algorithm)
 
-        model = make_parallel(model, self.params.num_gpus)
+        if self.params.num_gpus > 1:
+            model = make_parallel(model, self.params.num_gpus)
 
         model.compile(optimizer=Adam(lr=self.params.cnn_adam_learning_rate), loss='categorical_crossentropy', metrics=['accuracy'])
 
@@ -110,7 +111,8 @@ class FMOWBaseline:
 
         model = get_cnn_model(self.params, algorithm)
 
-        model = make_parallel(model, self.params.num_gpus)
+        if self.params.num_gpus > 1:
+            model = make_parallel(model, self.params.num_gpus)
            
         print ('Loading weights: ', weight_name)
         model.load_weights(weight_name, by_name=True)
@@ -162,7 +164,8 @@ class FMOWBaseline:
     def test_models (self, algorithm, model_weights):
 
         cnnModel = get_cnn_model(self.params, algorithm)
-        cnnModel = make_parallel(cnnModel, self.params.num_gpus)
+        if self.params.num_gpus > 1:
+            cnnModel = make_parallel(cnnModel, self.params.num_gpus)
         cnnModel.load_weights(model_weights)
         cnnModel = cnnModel.layers[-2]
      
@@ -230,7 +233,8 @@ class FMOWBaseline:
         for classifier in range(len(weights_densenet)):
           print ("Weight list number: %s" % (weights_densenet[i]))
           cnnModel = get_cnn_model(self.params, 'densenet')
-          cnnModel = make_parallel(cnnModel, self.params.num_gpus)
+          if self.params.num_gpus > 1:
+            cnnModel = make_parallel(cnnModel, self.params.num_gpus)
           cnnModel.load_weights(weights_densenet[i])
           cnnModel = cnnModel.layers[-2]
           ListModel[i] = cnnModel
@@ -242,7 +246,8 @@ class FMOWBaseline:
            print ("Weight list number: %s" % (weights_resnet[i]))
            cnnModel = get_cnn_model(self.params, 'resnet50')
            cnnModel = make_parallel(cnnModel, 4)
-           cnnModel.load_weights(weights_resnet[i])
+           if self.params.num_gpus > 1:
+              cnnModel.load_weights(weights_resnet[i])
            cnnModel = cnnModel.layers[-2]
            print ('Adding descriptor: ', i, ' in position: ', j)
            ListModel[j] = cnnModel
