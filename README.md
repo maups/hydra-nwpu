@@ -35,3 +35,5 @@ $ python runBaseline.py --prepare True
 $ python runBaseline.py --train True --num_gpus 4 --num_epochs 16 --batch_size 64
 $ python runBaseline.py --test True --num_gpus 4
 ```
+
+If you want to use 20% of the images for training, use the *random_split_20.sh* script instead and uncomment the line 48 of the file *params.py*.
