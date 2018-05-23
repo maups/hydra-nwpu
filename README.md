@@ -21,7 +21,6 @@ Hydra is a framework that creates ensembles of Convolutional Neural Networks (CN
 ## Requirements
 
 - Keras with TensorFlow backend
-- nvidia-docker
 
 ## Instructions
 
